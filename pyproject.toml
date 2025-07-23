@@ -4,11 +4,9 @@ version = "0.1.3.dev0"
 description = "Qwen 2.5-VL model wrapper and evaluation scripts"
 readme = "README.md"
 requires-python = ">=3.10"
-# git-зависимость фиксируем через PEP 440 direct URL
-# см. https://peps.python.org/pep-0440/#direct-references
+# В релизе используем конкретную версию model-interface с GitHub
 dependencies = [
-    # Используем локально установленную версию model-interface
-    "model-interface",
+    "model-interface @ git+https://github.com/VLMHyperBenchTeam/model_interface.git@0.1.3.dev1",
     "qwen-vl-utils>=0.0.11",
     "torch>=2.4,<2.8",
     "torchvision",
@@ -24,15 +22,9 @@ Repository = "https://github.com/VLMHyperBenchTeam/model_qwen2.5-vl"
 Homepage = "https://github.com/VLMHyperBenchTeam"
 
 [build-system]
-requires = ["hatchling"]
-build-backend = "hatchling.build"
-
-[tool.hatch.build.targets.wheel]
-packages = ["model_qwen2_5_vl"]
+requires = ["uv_build>=0.8.2,<0.9.0"]
+build-backend = "uv_build"
 
 # В dev-режиме, внутри uv workspace, берём локальный пакет
-[tool.uv.sources]
-model-interface = { workspace = true }
-
-[tool.hatch.metadata]
-allow-direct-references = true
+# [tool.uv.sources]
+# model-interface = { workspace = true }
