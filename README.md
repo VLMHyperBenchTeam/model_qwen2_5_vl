@@ -1,3 +1,34 @@
+# Установка
+
+## Установка из репозитория (Git)
+
+*   **Для пользователей с `uv` и `pyproject.toml` (рекомендуемый способ)**:
+    ```bash
+    uv add git+https://github.com/VLMHyperBenchTeam/model_qwen2.5-vl.git
+    uv sync
+    ```
+*   **Для пользователей с `pip` или `uv` (прямая установка)**:
+    ```bash
+    pip install git+https://github.com/VLMHyperBenchTeam/model_qwen2.5-vl.git
+    # или
+    uv pip install git+https://github.com/VLMHyperBenchTeam/model_qwen2.5-vl.git
+    ```
+
+## Установка из локального дистрибутива
+
+1.  Сборка: `uv build` (создает `.whl` и `.tar.gz` в `dist/`)
+2.  Установка: `uv pip install dist/model-qwen2-5-vl-0.1.3.dev0-py3-none-any.whl`
+> **Примечание:** `uv add` не поддерживает установку из `.whl` файлов. Для этого всегда используйте `uv pip install`.
+
+## Установка в режиме разработки
+
+```bash
+uv pip install -e .
+# или для пользователей pip
+pip install -e .
+```
+
+---
 # Описание модели для Benchmark
 
  семейства VLLM-моделей `Qwen2.5-VL`.
