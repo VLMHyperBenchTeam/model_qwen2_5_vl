@@ -6,7 +6,7 @@ readme = "README.md"
 requires-python = ">=3.10"
 # В релизе используем конкретную версию model-interface с GitHub
 dependencies = [
-    "model-interface @ git+https://github.com/VLMHyperBenchTeam/model_interface.git@0.1.3.dev1",
+    "model-interface",
     "qwen-vl-utils>=0.0.11",
     "torch>=2.4,<2.8",
     "torchvision",
@@ -25,6 +25,5 @@ Homepage = "https://github.com/VLMHyperBenchTeam"
 requires = ["uv_build>=0.8.2,<0.9.0"]
 build-backend = "uv_build"
 
-# В dev-режиме, внутри uv workspace, берём локальный пакет
-# [tool.uv.sources]
-# model-interface = { workspace = true }
+[tool.uv.sources]
+model-interface = { git = "https://github.com/VLMHyperBenchTeam/model_interface.git", tag = "0.1.3.dev1" }
